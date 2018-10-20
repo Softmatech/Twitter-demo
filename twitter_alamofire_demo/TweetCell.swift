@@ -8,6 +8,8 @@
 
 import UIKit
 import AlamofireImage
+import DateToolsSwift
+
 class TweetCell: UITableViewCell {
 
     @IBOutlet weak var imageAvatar: UIImageView!
@@ -26,6 +28,8 @@ class TweetCell: UITableViewCell {
     
     var tweet: Tweet! {
         didSet {
+            
+            
             let imageURL = URL(string: (tweet.user?.profileImage)!)
             print("image FInalllll-------->> ",imageURL!)
             imageAvatar.af_setImage(withURL: imageURL!)

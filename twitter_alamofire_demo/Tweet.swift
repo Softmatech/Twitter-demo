@@ -46,8 +46,6 @@ class Tweet: NSObject {
         let user = dictionary["user"] as! [String: Any]
         self.user = User(dictionary: user)
         
-//        self.profileImage = User(dictionary: user)
-//        print("image Tweettttt--------->>>>>>>>> ",profileImage)
         
         // Format createdAt date string
         let createdAtOriginalString = dictionary["created_at"] as! String
@@ -61,6 +59,7 @@ class Tweet: NSObject {
         formatter.timeStyle = .none
         // Convert Date to String and set the createdAtString property
         createdAtString = formatter.string(from: date)
+        print("createdATTtt---->>> ",createdAtString)
     }
     
     static func tweets(with array: [[String: Any]]) -> [Tweet] {
