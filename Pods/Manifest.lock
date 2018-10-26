@@ -8,6 +8,7 @@ PODS:
   - OAuthSwiftAlamofire (0.2.0):
     - Alamofire
     - OAuthSwift
+  - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
   - Alamofire
@@ -16,6 +17,7 @@ DEPENDENCIES:
   - KeychainAccess
   - OAuthSwift
   - OAuthSwiftAlamofire
+  - SVProgressHUD
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -25,6 +27,7 @@ SPEC REPOS:
     - KeychainAccess
     - OAuthSwift
     - OAuthSwiftAlamofire
+    - SVProgressHUD
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
@@ -33,7 +36,8 @@ SPEC CHECKSUMS:
   KeychainAccess: 7bd430028059754a3debab3cfc0bd1fc7fb85df3
   OAuthSwift: 27b34fe80b76b67cd8f45571e0be2432bc9f6de1
   OAuthSwiftAlamofire: e51f11ff579dd4293bfe2a1a24c658caad4dac35
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 0273966a4fadaae476d6e74c7128c146c41124c3
+PODFILE CHECKSUM: a94fa705e40b6382c71b20be6afc3b726232315a
 
 COCOAPODS: 1.5.3

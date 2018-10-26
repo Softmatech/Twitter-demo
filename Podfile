@@ -12,8 +12,10 @@ target 'twitter_alamofire_demo' do
   pod 'KeychainAccess'
   pod 'AlamofireImage', '~> 3.3'
   pod 'DateToolsSwift'
+  
   target 'twitter_alamofire_demoTests' do
     inherit! :search_paths
+    pod 'SVProgressHUD'
     # Pods for testing
   end
 

@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class Tweet: NSObject {
 //     MARK: Properties
     var id: Int? // For favoriting, retweeting & replying
@@ -20,15 +19,13 @@ class Tweet: NSObject {
     var user: User? // Author of the Tweet
     var createdAtString: String? // String representation of date posted
     var retweetedByUser: User?  // user who retweeted if tweet is retweet
-    var profileImage: User?
-    
+    var personalProfileImage: String?
     
     
     init(dictionary: [String: Any]) {
         var dictionary = dictionary
         // Is this a re-tweet?
-        
-        print("Dico----------->> ",dictionary)
+//        print("Dico----------->> ",dictionary)
         if let originalTweet = dictionary["retweeted_status"] as? [String: Any] {
             let userDictionary = dictionary["user"] as! [String: Any]
             self.retweetedByUser = User(dictionary: userDictionary)
@@ -59,7 +56,6 @@ class Tweet: NSObject {
         formatter.timeStyle = .none
         // Convert Date to String and set the createdAtString property
         createdAtString = formatter.string(from: date)
-        print("createdATTtt---->>> ",createdAtString)
     }
     
     static func tweets(with array: [[String: Any]]) -> [Tweet] {

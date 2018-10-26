@@ -1,29 +1,36 @@
 //
-//  TimelineViewController.swift
+//  profileViewController.swift
 //  twitter_alamofire_demo
 //
-//  Created by Aristotle on 2018-08-11.
+//  Created by Joseph Andy Feidje on 10/25/18.
 //  Copyright © 2018 Charles Hieger. All rights reserved.
 //
 
 import UIKit
 
-class TimelineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+class profileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+    @IBOutlet weak var backDropImage: UIImageView!
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var NameLabel: UILabel!
+    @IBOutlet weak var userLabel: UILabel!
+    @IBOutlet weak var aboutLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var lougoutButton: UIBarButtonItem!
+    @IBOutlet weak var follwing: UILabel!
+    @IBOutlet weak var followers: UILabel!
+    @IBOutlet weak var tweet: UILabel!
+    
     var tweets: [Tweet] = []
     var users: [User] = []
     var user: User?
-    
     var refreshControl: UIRefreshControl!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-//        tableView.rowHeight = UITableViewAutomaticDimension
-//        tableView.estimatedRowHeight = 550
         fetchTweets()
         fetchUser()
         refreshControl = UIRefreshControl()
@@ -34,6 +41,10 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @objc func didPullToRefresh(_ refreshControl: UIRefreshControl) {
+        fetchTweets()
     }
     
     func fetchTweets() {
@@ -49,13 +60,18 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     func fetchUser() {
         APIManager.shared.getCurrentAccount{ (user: User?, error: Error?) in
             if let user = user {
-               self.user = user
+                
+                self.user = user
+                self.NameLabel.text = user.name
+                self.profileImage.af_setImage(withURL: URL(string: user.profileImage!)!)
+                self.backDropImage.af_setImage(withURL: URL(string: user.banerImage!)!)
+                self.userLabel.text = user.screenName
+                self.aboutLabel.text = user.aboutDescription
+                self.follwing.text = String(describing: user.fallowingCount!) + " Following"
+                self.followers.text = String(describing: user.fallowersCount!) + " Followers"
+                self.tweet.text = String(describing: user.tweetCount!) + " Tweets"
             }
         }
-    }
-    
-    @objc func didPullToRefresh(_ refreshControl: UIRefreshControl) {
-        fetchTweets()
     }
     
     func favoriteTweet(tweet: Tweet) {
@@ -68,12 +84,6 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    @IBAction func onLogoutButton(_ sender: Any) {
-        
-        // Copy this line once you've made the outlet
-        APIManager.shared.logout()
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tweets.count
     }
@@ -82,23 +92,22 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetCell
         cell.tweet = tweets[indexPath.row]
         if indexPath.row == 0 {
-//            lougoutButton.image = UIImage(contentsOfFile: (user?.profileImage)!)
+            //            lougoutButton.image = UIImage(contentsOfFile: (user?.profileImage)!)
         }
         return cell
     }
-
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailSegue" {
-        let detailController = segue.destination as! detailViewController
-        let cell = sender as! TweetCell?
-        let indexPath = tableView.indexPath(for: cell!)
-        detailController.tweet = tweets[(indexPath?.row)!]
+            let detailController = segue.destination as! detailViewController
+            let cell = sender as! TweetCell?
+            let indexPath = tableView.indexPath(for: cell!)
+            detailController.tweet = tweets[(indexPath?.row)!]
         }
         else  {
             if segue.identifier == "composeSegue" {
-                print("yesssssssssss")
-            let composeController = segue.destination as! composeViewController
+                let composeController = segue.destination as! composeViewController
                 composeController.imagePath = (user?.profileImage)!
                 composeController.fullName = (user?.name)!
                 composeController.userName = (user?.screenName)!
@@ -106,9 +115,6 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    @IBAction func newButton(_ sender: Any) {
-        performSegue(withIdentifier: "composeSegue", sender: nil)
-    }
     
-    
+
 }
