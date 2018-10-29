@@ -125,21 +125,12 @@ class profileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "detailSegue" {
             let detailController = segue.destination as! detailViewController
             let cell = sender as! TweetCell?
             let indexPath = tableView.indexPath(for: cell!)
             detailController.tweet = tweets[(indexPath?.row)!]
-        }
-        else  {
-            if segue.identifier == "composeSegue" {
-                let composeController = segue.destination as! composeViewController
-                composeController.imagePath = (user?.profileImage)!
-                composeController.fullName = (user?.name)!
-                composeController.userName = (user?.screenName)!
-            }
-        }
     }
+    
     
     
 

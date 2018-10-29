@@ -15,8 +15,8 @@ The following **required** stories are completed:
 
 The following **stretch** features are implemented:
 
-- [ ] Profile view includes that user's timeline. (2pts)
-- [ ] User can tap the profile image in any tweet to see another user's profile. (1pt)
+- [X] Profile view includes that user's timeline. (2pts)
+- [X] User can tap the profile image in any tweet to see another user's profile. (1pt)
    - Contains the user header view: picture and tagline.
    - Contains a section with the users basic stats: # tweets, # following, # followers.
 - [X] After creating a new tweet, a user should be able to view it in the timeline immediately without refetching the timeline from the network. (1pt)
@@ -37,7 +37,8 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://i.imgur.com/oSPs6wm.giff' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/oSPs6wm.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='hhttps://i.imgur.com/SUYzWuD.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
