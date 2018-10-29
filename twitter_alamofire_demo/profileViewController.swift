@@ -20,6 +20,7 @@ class profileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var follwing: UILabel!
     @IBOutlet weak var followers: UILabel!
     @IBOutlet weak var tweet: UILabel!
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
     var tweets: [Tweet] = []
     var users: [User] = []
@@ -29,6 +30,8 @@ class profileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        indicatorSet()
+        emptyLabel()
         tableView.delegate = self
         tableView.dataSource = self
         fetchTweets()
@@ -47,20 +50,42 @@ class profileViewController: UIViewController, UITableViewDelegate, UITableViewD
         fetchTweets()
     }
     
+    func emptyLabel() {
+        NameLabel.text = ""
+        userLabel.text = ""
+        aboutLabel.text = ""
+        followers.text = ""
+        follwing.text = ""
+        tweet.text = ""
+    }
+    
+    func indicatorSet(){
+        if indicatorView.isAnimating == true {
+            indicatorView.stopAnimating()
+            indicatorView.isHidden = true
+        }
+        else{
+            indicatorView.isHidden = true
+            indicatorView.startAnimating()
+        }
+    }
+    
     func fetchTweets() {
         APIManager.shared.getHomeTimeLine { (tweets: [Tweet]?, error: Error?) in
+            self.indicatorView.startAnimating()
             if let tweets = tweets {
                 self.tweets = tweets
                 self.tableView.reloadData()
                 self.refreshControl.endRefreshing()
+                self.indicatorView.stopAnimating()
             }
         }
     }
     
     func fetchUser() {
         APIManager.shared.getCurrentAccount{ (user: User?, error: Error?) in
+            self.indicatorView.startAnimating()
             if let user = user {
-                
                 self.user = user
                 self.NameLabel.text = user.name
                 self.profileImage.af_setImage(withURL: URL(string: user.profileImage!)!)
@@ -70,6 +95,7 @@ class profileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 self.follwing.text = String(describing: user.fallowingCount!) + " Following"
                 self.followers.text = String(describing: user.fallowersCount!) + " Followers"
                 self.tweet.text = String(describing: user.tweetCount!) + " Tweets"
+                self.indicatorView.stopAnimating()
             }
         }
     }
