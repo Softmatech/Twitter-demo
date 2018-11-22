@@ -87,6 +87,10 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
 
+    @IBAction func reply(_ sender: Any) {
+        print("replyyyyyyy")
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailSegue" {
@@ -95,14 +99,17 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         let indexPath = tableView.indexPath(for: cell!)
         detailController.tweet = tweets[(indexPath?.row)!]
         }
-        else  {
-            if segue.identifier == "composeSegue" {
-                print("yesssssssssss")
+        else if segue.identifier == "composeSegue" {
             let composeController = segue.destination as! composeViewController
                 composeController.imagePath = (user?.profileImage)!
                 composeController.fullName = (user?.name)!
                 composeController.userName = (user?.screenName)!
             }
+        else if segue.identifier == "replySegue" {
+            let replyController = segue.destination as! replysViewController
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TweeCell")
+            let indexPath = tableView.indexPath(for: cell!)
+            replyController.tweet = tweets[(indexPath?.row)!]
         }
     }
     

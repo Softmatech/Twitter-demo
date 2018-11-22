@@ -120,11 +120,7 @@ class TweetCell: UITableViewCell {
         likeLabel.setTitle(String(describing: tweet.favoriteCount), for: UIControlState.normal)
     }
 
-    
-    @IBAction func reply(_ sender: Any) {
-        print("replyyyyyyyy")
-        
-    }
+
     
     override func awakeFromNib() {
         super.awakeFromNib()

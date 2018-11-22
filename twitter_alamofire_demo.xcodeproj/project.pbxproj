@@ -14,8 +14,8 @@
 		BEBC8368211F4199003A5FE1 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBC8367211F4199003A5FE1 /* TimelineViewController.swift */; };
 		E6070A6E217FA3C8004E5C35 /* detailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6070A6D217FA3C8004E5C35 /* detailViewController.swift */; };
 		E6B1DFC22181377800878176 /* composeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B1DFC12181377800878176 /* composeViewController.swift */; };
+		E6B6F11D21A73C67007ED48A /* replysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B6F11C21A73C67007ED48A /* replysViewController.swift */; };
 		E6DB39B72182605600F0C49D /* profileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DB39B62182605600F0C49D /* profileViewController.swift */; };
-		E6E41977217A6C0500D56573 /* replyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E41976217A6C0500D56573 /* replyViewController.swift */; };
 		E6F4E758217661EC004E82D9 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F4E757217661EC004E82D9 /* TweetCell.swift */; };
 		ED1AFD311E942B2500FD4B90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1AFD301E942B2500FD4B90 /* AppDelegate.swift */; };
 		ED1AFD361E942B2500FD4B90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED1AFD341E942B2500FD4B90 /* Main.storyboard */; };
@@ -59,8 +59,8 @@
 		BEBC8367211F4199003A5FE1 /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		E6070A6D217FA3C8004E5C35 /* detailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailViewController.swift; sourceTree = "<group>"; };
 		E6B1DFC12181377800878176 /* composeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = composeViewController.swift; sourceTree = "<group>"; };
+		E6B6F11C21A73C67007ED48A /* replysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = replysViewController.swift; sourceTree = "<group>"; };
 		E6DB39B62182605600F0C49D /* profileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
-		E6E41976217A6C0500D56573 /* replyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = replyViewController.swift; sourceTree = "<group>"; };
 		E6F4E757217661EC004E82D9 /* TweetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 		ED1AFD2D1E942B2500FD4B90 /* twitter_alamofire_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twitter_alamofire_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED1AFD301E942B2500FD4B90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -210,10 +210,10 @@
 			children = (
 				BEBC8367211F4199003A5FE1 /* TimelineViewController.swift */,
 				ED1AFD601E94496E00FD4B90 /* LoginViewController.swift */,
-				E6E41976217A6C0500D56573 /* replyViewController.swift */,
 				E6070A6D217FA3C8004E5C35 /* detailViewController.swift */,
 				E6B1DFC12181377800878176 /* composeViewController.swift */,
 				E6DB39B62182605600F0C49D /* profileViewController.swift */,
+				E6B6F11C21A73C67007ED48A /* replysViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -410,15 +410,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-twitter_alamofire_demoTests/Pods-twitter_alamofire_demoTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 			);
@@ -483,6 +479,7 @@
 				ED1AFD611E94496E00FD4B90 /* LoginViewController.swift in Sources */,
 				E6F4E758217661EC004E82D9 /* TweetCell.swift in Sources */,
 				E6070A6E217FA3C8004E5C35 /* detailViewController.swift in Sources */,
+				E6B6F11D21A73C67007ED48A /* replysViewController.swift in Sources */,
 				BEBC8368211F4199003A5FE1 /* TimelineViewController.swift in Sources */,
 				ED1AFD5F1E94421000FD4B90 /* APIManager.swift in Sources */,
 				BE4D1BBA2168082300E21A30 /* Tweet.swift in Sources */,
@@ -490,7 +487,6 @@
 				BE4D1BB82168078300E21A30 /* User.swift in Sources */,
 				E6B1DFC22181377800878176 /* composeViewController.swift in Sources */,
 				ED1AFD311E942B2500FD4B90 /* AppDelegate.swift in Sources */,
-				E6E41977217A6C0500D56573 /* replyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
