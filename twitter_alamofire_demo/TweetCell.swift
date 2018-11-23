@@ -32,7 +32,7 @@ class TweetCell: UITableViewCell {
             let imageURL = URL(string: (tweet.user?.profileImage)!)
         imageAvatar.af_setImage(withURL: imageURL!)
         nameLabel.text = tweet.user?.name
-        username.text = tweet.user?.screenName
+            username.text = "@" + (tweet.user?.screenName)!
         tweetContent.text = tweet.text
         retweetedLabel.setTitle(String(describing: tweet.retweetCount), for: UIControlState.normal)
         likeLabel.setTitle(String(describing: tweet.favoriteCount), for: UIControlState.normal)

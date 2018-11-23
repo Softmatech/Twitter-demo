@@ -90,7 +90,7 @@ class profileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 self.NameLabel.text = user.name
                 self.profileImage.af_setImage(withURL: URL(string: user.profileImage!)!)
                 self.backDropImage.af_setImage(withURL: URL(string: user.banerImage!)!)
-                self.userLabel.text = user.screenName
+                self.userLabel.text = "@" + user.screenName!
                 self.aboutLabel.text = user.aboutDescription
                 self.follwing.text = String(describing: user.fallowingCount!) + " Following"
                 self.followers.text = String(describing: user.fallowersCount!) + " Followers"

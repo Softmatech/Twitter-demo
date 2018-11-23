@@ -29,7 +29,7 @@ class detailViewController: UIViewController {
         super.viewDidLoad()
         avatarImage.af_setImage(withURL: URL(string: (tweet.user?.profileImage)!)!)
         nameLabel.text = tweet.user?.name
-        usernameLabel.text = tweet.user?.screenName
+        usernameLabel.text = "@" + (tweet.user?.screenName)!
         textContent.text = tweet.text
         dateLabel.text = tweet.createdAtString
         retweetLabel.text = String(describing: tweet.retweetCount)

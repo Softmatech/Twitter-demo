@@ -224,7 +224,7 @@ Display the associated Tweet and attribution with images or media.</string>
                                                     <outlet property="tweetContent" destination="737-KO-IUo" id="ugB-3K-00F"/>
                                                     <outlet property="userRetweetedLabel" destination="wWw-rZ-qPs" id="pPl-9S-Yam"/>
                                                     <outlet property="username" destination="ieT-YZ-khv" id="98k-1U-4AT"/>
-                                                    <segue destination="ery-ea-Srf" kind="show" identifier="detailSegue" id="3YJ-fc-jZI"/>
+                                                    <segue destination="ery-ea-Srf" kind="show" identifier="detailSegue" id="jln-2q-NnK"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -268,7 +268,7 @@ Display the associated Tweet and attribution with images or media.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZlF-i2-Ves" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2589.5999999999999" y="36.431784107946029"/>
+            <point key="canvasLocation" x="2590" y="37"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="5rM-wj-qEh">
@@ -428,6 +428,7 @@ Display the associated Tweet and attribution with images or media.</string>
                             <constraint firstAttribute="trailing" secondItem="LUw-n0-2QV" secondAttribute="trailing" constant="4" id="zqP-oj-a4g"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="sWC-hp-5A1"/>
                     <connections>
                         <outlet property="avatarImage" destination="FvZ-3r-QSP" id="I0A-Fg-wbe"/>
                         <outlet property="dateLabel" destination="L5f-6h-ciX" id="6dX-QE-yBg"/>
@@ -442,7 +443,7 @@ Display the associated Tweet and attribution with images or media.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nm9-5J-fmd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1664.8" y="795.6521739130435"/>
+            <point key="canvasLocation" x="2604" y="795.6521739130435"/>
         </scene>
         <!--Compose View Controller-->
         <scene sceneID="OXO-nA-S9i">
@@ -536,7 +537,7 @@ Display the associated Tweet and attribution with images or media.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RMm-m0-lVA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3302" y="796"/>
+            <point key="canvasLocation" x="4240.8000000000002" y="795.6521739130435"/>
         </scene>
         <!--Title-->
         <scene sceneID="uVT-LI-gYh">
@@ -660,7 +661,7 @@ Display the associated Tweet and attribution with images or media.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PVs-Uu-Vhl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3500" y="35.532233883058474"/>
+            <point key="canvasLocation" x="3503" y="37"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="pHm-ih-6Ow">
@@ -1004,7 +1005,7 @@ Display the associated Tweet and attribution with images or media.</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4OY-y2-9q8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2486" y="796"/>
+            <point key="canvasLocation" x="3424.8000000000002" y="795.6521739130435"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="W54-ED-yXK">
@@ -1044,6 +1045,24 @@ Display the associated Tweet and attribution with images or media.</string>
             </objects>
             <point key="canvasLocation" x="4342" y="37"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="5EB-ml-9ge">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KxY-vo-9qW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bcD-j4-Dab">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ery-ea-Srf" kind="relationship" relationship="rootViewController" id="gzs-Zb-XBj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mpZ-Re-jEz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1664.8" y="795.6521739130435"/>
+        </scene>
     </scenes>
     <resources>
         <image name="TwitterLogo" width="120" height="120"/>
@@ -1061,6 +1080,7 @@ Display the associated Tweet and attribution with images or media.</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="y1M-yy-xSF"/>
+        <segue reference="jln-2q-NnK"/>
         <segue reference="ge0-Ax-h2k"/>
     </inferredMetricsTieBreakers>
 </document>
