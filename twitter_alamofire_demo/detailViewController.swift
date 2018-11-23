@@ -123,4 +123,13 @@ class detailViewController: UIViewController {
         self.starLabel.setImage(colImage, for: UIControlState.normal)
         retweetedLabel.setImage(greenTapImage, for: UIControlState.selected)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            let replyController = segue.destination as! replysViewController
+        replyController.imagePath = (tweet.user?.profileImage)!
+        replyController.fullName = (tweet.user?.name)!
+        replyController.userName = (tweet.user?.screenName)!
+        replyController.textContent = tweet.text!
+    }
+    
 }

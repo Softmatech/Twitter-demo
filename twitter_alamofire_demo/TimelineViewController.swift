@@ -107,8 +107,8 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
             }
         else if segue.identifier == "replySegue" {
             let replyController = segue.destination as! replysViewController
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TweeCell")
-            let indexPath = tableView.indexPath(for: cell!)
+            let cell = sender as! UITableViewCell
+            let indexPath = tableView.indexPath(for: cell)
             replyController.tweet = tweets[(indexPath?.row)!]
         }
     }

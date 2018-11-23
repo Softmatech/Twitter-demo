@@ -17,19 +17,54 @@ class replysViewController: UIViewController {
     @IBOutlet weak var postContent: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var replyContent: UITextField!
+    @IBOutlet weak var replyLabel: UILabel!
+    
+    var imagePath: String = ""
+    var fullName: String = ""
+    var userName: String = ""
+    var textContent: String = ""
+    var user: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        postProfileImage.af_setImage(withURL: URL(string: tweet.personalProfileImage!)!)
-        postUsernameLabel.text = tweet.user?.name
-        postScreenNameLabel.text = tweet.user?.screenName
+        fetchUser()
+        replyLabel.text = "Replying to @ " + userName
+        postProfileImage.af_setImage(withURL: URL(string: imagePath)!)
+        postUsernameLabel.text = fullName
+        postScreenNameLabel.text = userName
+        postContent.text = textContent
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func fetchUser() {
+        APIManager.shared.getCurrentAccount{ (user: User?, error: Error?) in
+            if let user = user {
+                self.user = user
+                self.profileImage.af_setImage(withURL: URL(string: user.profileImage!)!)
+                
+            }
+        }
+    }
+    @IBAction func close(_ sender: Any) {
+        performSegue(withIdentifier: "TimeLineSegue", sender: self)
+    }
+    
+    @IBAction func reply(_ sender: Any) {
+        APIManager.shared.replyTweet(with: replyContent.text!) { (tweet, error) in
+            if let error = error {
+                print("Error on reply \(error.localizedDescription)")
+            }
+            else{
+                print("yay it work!")
+                self.performSegue(withIdentifier: "TimeLineSegue", sender: self)
+            }
+        }
+    }
+    
     
 
 }
